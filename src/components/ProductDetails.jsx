@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import { SearchContext } from "../context/SearchContext";
+import ProductCard from "./ProductCard";
 
 const ProductDetails = () => {
     const [offers, setOffers] = useState([]);
@@ -46,21 +47,7 @@ const ProductDetails = () => {
                             {offers
                             .filter((offer) => offer.category === category)
                             .map((offer) => (
-                                <motion.div 
-                                key={offer.id} 
-                                className="border p-4 text-center flex flex-col justify-between max-w-xs mx-auto"
-                                initial={{opacity:0, scale: 0.5}}
-                                animate={{opacity:1, scale: 1}}
-                                transition={{duration: 0.5}}
-                                >
-                                    <img src={offer.thumbnail} alt={offer.title} className="w-full h-32 object-contain mb-4" />
-                                    <h2 className="font-bold text-xl mb-2">{offer.title}</h2>
-                                    <p className="text-gray-600 mb-2">{offer.description}</p>
-                                    <p className="font-semibold text-left">R${offer.price}</p>
-                                    <button 
-                                    onClick={() => handleBuyClick(offer.id)}
-                                    className="py-1.5 px-2 bg-indigo-500 hover:bg-blue-700 w-24 rounded flex justify-center">Comprar</button>
-                                </motion.div>
+                                <ProductCard key={offer.id} product={offer}/>
                             ))}
                         </div>
                     </div>

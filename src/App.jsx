@@ -19,10 +19,7 @@ function App() {
     <SearchProvider> {/* Garantindo que SearchProvider envolve toda a aplicação */}
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/offer/:id" element={<Offer/>} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>

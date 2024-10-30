@@ -10,7 +10,7 @@ const ProductCard = ({product}) => {
     
     return(
         <motion.div  
-            className="border p-4 text-center flex flex-col justify-between max-w-xs mx-auto"
+            className="border p-4 text-center flex flex-col justify-between max-w-xs mx-auto shadow-lg"
             initial={{opacity:0, scale: 0.5}}
             animate={{opacity:1, scale: 1}}
             transition={{duration: 0.5}}>
@@ -20,7 +20,7 @@ const ProductCard = ({product}) => {
             <p className="font-semibold text-left">R${product.price}</p>
             <button 
             onClick={() => handleBuyClick(product.id)}
-            className="py-1.5 px-2 bg-indigo-500 hover:bg-blue-700 w-24 rounded flex justify-center">Comprar</button>
+            className="py-1.5 px-2 bg-indigo-500 hover:bg-blue-700 w-24 rounded flex justify-center text-white">Comprar</button>
         </motion.div>
     )
 }

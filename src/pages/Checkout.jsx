@@ -1,7 +1,69 @@
-const Checkout = () => {
+import { useLocation } from "react-router-dom";
+import Header from "../components/Header";
 
+const Checkout = () => {
+    const location = useLocation();
+    const {data} = location.state || {};
+    console.log(data)
     return(
-        <div>checkout</div>
+        <div>
+            <header className="flex justify-center mt-8">
+                <Header/>
+            </header>
+            <main className="flex flex-col items-center md:flex-row">
+                <section className="mt-8 w-full md:w-1/2 p-4">
+                    <h1 className="font-bold text-xl">Pagamento</h1>
+                    <form>
+                        <input 
+                        className="w-full py-2 px-4 pr-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4 mt-4"
+                        type="text" 
+                        placeholder="Numero do cartao"
+                        required
+                        />
+                        <input 
+                        className="w-full py-2 px-4 pr-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        type="text" 
+                        placeholder="Nome impresso" 
+                        required
+                        />
+                        <div className="flex space-x-4">
+                            <input 
+                            className="w-5/12 py-2 px-4 pr-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 my-4"
+                            type="month" 
+                            required/>
+                            <input 
+                            className="w-1/4 py-1 px-4 pr-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
+                            type="number" 
+                            placeholder="CVV" 
+                            required 
+                            minLength='3' 
+                            maxLength='4' 
+                            />
+                        </div>
+                        <button 
+                        className="w-full py-1.5 px-2 bg-blue-300 text-white">Pagar Agora</button>
+                    </form>
+                </section> 
+
+                <div className="hidden md:block border-r-2 border-slate-700 mx-4 flex-grow h-auto">&nbsp;</div>
+
+                <section className="w-full md:w-1/2 p-4 text-center">
+                    <h2 className="font-bold text-xl">Resumo da compra</h2>
+                    {data && data.length > 0 ? ( // Verifique se data existe e tem elementos
+                        data.map(product => (
+                            <div key={product.id} className="flex justify-between my-2">
+                                <p>{product.title}</p>
+                                <p>{product.quantity}x</p>
+                                <p>{(product.price * product.quantity).toFixed(2)}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Nenhum produto adicionado.</p> // Mensagem alternativa se data estiver vazio
+                    )}
+                    <p className="text-center">Total: R${data.reduce((total, item) => total + item.price, 0).toFixed(2)}</p>
+                </section>
+            </main>
+        </div>
     )
 }
 

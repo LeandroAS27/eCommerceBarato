@@ -3,10 +3,9 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { SearchContext } from "../context/SearchContext";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ offers }) => {
-    const {searchTerm, setSearchTerm} = useContext(SearchContext);
+const Header = () => {
+    const {searchTerm, setSearchTerm, offers, setOffers} = useContext(SearchContext);
     const navigate = useNavigate();
-
     const handleSubmit = () => {
         if(offers && offers.length > 0) {
 
@@ -22,7 +21,7 @@ const Header = ({ offers }) => {
     }   
 
     return(
-        <div className="relative w-64">
+        <header className="relative w-96">
             <input 
             type="text"
             placeholder="Pesquise o produto aqui..."
@@ -32,7 +31,7 @@ const Header = ({ offers }) => {
             <FaShoppingCart className="absolute right-3 top-3 text-gray-500 cursor-pointer"
             onClick={handleSubmit}
             />
-        </div>
+        </header>
     )
 }
 

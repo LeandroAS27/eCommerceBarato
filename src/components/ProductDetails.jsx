@@ -6,9 +6,8 @@ import { SearchContext } from "../context/SearchContext";
 import ProductCard from "./ProductCard";
 
 const ProductDetails = () => {
-    const [offers, setOffers] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { searchTerm } = useContext(SearchContext);
+    const { searchTerm, offers, setOffers } = useContext(SearchContext);
     const [error, setError] = useState(null);
     const categories = ["beauty", "fragrances", "furniture"];
 
@@ -34,9 +33,19 @@ const ProductDetails = () => {
         fetchOffers();
     }, []);
     
-      const filteredOffers = offers.filter(offer => 
-        offer.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        const filteredOffers = offers.filter(offer => 
+            offer.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
+        if(offers.length > 0 ){
+            const data = offers.map(offer => ({
+                id: offer.id,
+                title: offer.title,
+                description: offer.description,
+                price: offer.price
+            }));
+        }
+
+        
     return(
         <div>
             {

@@ -5,11 +5,13 @@ const Home = () => {
     
     return(
         <>
-            <div className="w-full h-screen flex flex-col items-center mt-14">
-                <Header/>
-                <div className="w-full flex justify-center mt-8">
+            <div className="w-full h-full flex flex-col items-center pt-14 bg-gradient-to-b from-green-500 to-blue-500">
+                <header>
+                    <Header/>
+                </header>
+                <main className="w-full flex justify-center mt-8">
                     <ProductDetails/>
-                </div>
+                </main>
             </div>
         </>
     )

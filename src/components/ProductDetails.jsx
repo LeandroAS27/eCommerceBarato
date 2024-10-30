@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from 'framer-motion'
 import axios from 'axios'
 import { SearchContext } from "../context/SearchContext";
 import ProductCard from "./ProductCard";
@@ -68,7 +67,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-
-//Preciso colocar a busca da API no componente pai para nao dar problema na hora do header buscar sobre o produto
-//Provavelmente vou ter que transferir o return para o ProductCard
-//Depois ver de colocar um slider e filtros

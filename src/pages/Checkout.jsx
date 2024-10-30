@@ -1,10 +1,8 @@
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
+import CartSummary from "../components/CartSummary";
 
 const Checkout = () => {
-    const location = useLocation();
-    const {data} = location.state || {};
-    console.log(data)
     return(
         <div>
             <header className="flex justify-center mt-8">
@@ -47,21 +45,7 @@ const Checkout = () => {
 
                 <div className="hidden md:block border-r-2 border-slate-700 mx-4 flex-grow h-auto">&nbsp;</div>
 
-                <section className="w-full md:w-1/2 p-4 text-center">
-                    <h2 className="font-bold text-xl">Resumo da compra</h2>
-                    {data && data.length > 0 ? ( // Verifique se data existe e tem elementos
-                        data.map(product => (
-                            <div key={product.id} className="flex justify-between my-2">
-                                <p>{product.title}</p>
-                                <p>{product.quantity}x</p>
-                                <p>{(product.price * product.quantity).toFixed(2)}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>Nenhum produto adicionado.</p> // Mensagem alternativa se data estiver vazio
-                    )}
-                    <p className="text-center">Total: R${data.reduce((total, item) => total + item.price, 0).toFixed(2)}</p>
-                </section>
+                <CartSummary/>
             </main>
         </div>
     )

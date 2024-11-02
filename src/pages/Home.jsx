@@ -5,7 +5,7 @@ const Home = () => {
     
     return(
         <>
-            <div className="w-full h-full flex flex-col items-center pt-14 bg-gradient-to-b from-green-500 to-blue-500">
+            <div className="w-full h-full flex flex-col items-center pt-14 bg-gray-100">
                 <header>
                     <Header/>
                 </header>

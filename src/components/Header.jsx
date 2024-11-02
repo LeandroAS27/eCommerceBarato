@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaShoppingCart } from 'react-icons/fa'
 import { SearchContext } from "../context/SearchContext";
 import { useNavigate } from "react-router-dom";
+import {motion} from 'framer-motion'
 
 const Header = () => {
     const {searchTerm, setSearchTerm, offers, setOffers} = useContext(SearchContext);
@@ -21,7 +22,10 @@ const Header = () => {
     }   
 
     return(
-        <header className="relative w-96">
+        <motion.header className="relative w-64 sm:w-80 md:w-96"
+        initial={{opacity:0, scale: 0.5}}
+        animate={{opacity:1, scale: 1}}
+        transition={{duration: 0.5}}>
             <input 
             type="text"
             placeholder="Pesquise o produto aqui..."
@@ -31,7 +35,7 @@ const Header = () => {
             <FaShoppingCart className="absolute right-3 top-3 text-gray-500 cursor-pointer"
             onClick={handleSubmit}
             />
-        </header>
+        </motion.header>
     )
 }
 

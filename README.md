@@ -75,7 +75,7 @@ npm run dev
 # ou
 
 yarn dev
-O projeto estará disponível em http://localhost:3000.
+O projeto estará disponível em http://localhost:5173.
 
 ## Funcionalidades Futuras
 

@@ -12,6 +12,18 @@ Este é um projeto de ecommerce desenvolvido em **React** que consiste em três 
 
 O objetivo do projeto é criar uma experiência simples e eficaz de compra online, com funcionalidades como adição ao carrinho e finalização de compra.
 
+### Tela Inicial
+
+![Tela Inicial](./public/Tela%20Inicial.png)
+
+### Tela de Oferta
+
+![Tela de Oferta](./public/Tela%20de%20oferta.png)
+
+### Checkout
+
+![Checkout](./public/Checkout.png)
+
 ## Tecnologias Utilizadas
 
 - **React**

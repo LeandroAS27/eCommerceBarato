@@ -54,7 +54,6 @@ O objetivo do projeto é criar uma experiência simples e eficaz de compra onlin
 ## Passo a passo
 
 1. Clone o repositório:
-   git clone https://github.com/seu-usuario/ecommerce-app.git
 
 2. Navegue até o diretório do projeto:
 
